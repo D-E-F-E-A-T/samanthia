@@ -7,8 +7,8 @@ canvas.height = HEIGHT;
 
 var player = {
   speed: 256,
-  height: 10,
-  width: 10,
+  height: 8,
+  width: 8,
   x: canvas.width / 2,
   y: canvas.height / 2
 };
@@ -17,37 +17,37 @@ var player = {
 var keysDown = {};
 
 addEventListener("keydown", function(e) {
-  keysDown[e.keyCode] = true;
+  keysDown[e.key] = true;
 }, false);
 
 addEventListener("keyup", function(e) {
-  delete keysDown[e.keyCode];
+  delete keysDown[e.key];
 }, false);
 
 // update
 function update(mod) {
-  if (38 in keysDown) { // up
+  if ("ArrowUp" in keysDown) { // up
     player.y -= player.speed * mod;
     if (player.y <= -player.height) {
-      player.y = canvas.height - player.height;
+      player.y = canvas.height - player.height/2;
     }
   }
-  if (40 in keysDown) { // down
+  if ("ArrowDown" in keysDown) { // down
     player.y += player.speed * mod;
     if (player.y >= canvas.height + player.height) {
-      player.y = 0;
+      player.y = -player.height/2;
     }
   }
-  if (37 in keysDown) { // left
+  if ("ArrowLeft" in keysDown) { // left
     player.x -= player.speed * mod;
     if (player.x <= -player.width) {
-      player.x = canvas.width - player.width;
+      player.x = canvas.width - player.width/2;
     }
   }
-  if (39 in keysDown) { // right
+  if ("ArrowRight" in keysDown) { // right
     player.x += player.speed * mod;
     if (player.x >= canvas.width + player.width) {
-      player.x = 0;
+      player.x = -player.width/2;
     }
   }
 }

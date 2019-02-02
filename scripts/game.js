@@ -26,25 +26,26 @@ addEventListener("keyup", function(e) {
 
 // update
 function update(mod) {
-  if ("ArrowUp" in keysDown) { // up
+  console.log(keysDown);
+  if ("w" in keysDown) { // up
     player.y -= player.speed * mod;
     if (player.y <= -player.height) {
       player.y = canvas.height - player.height/2;
     }
   }
-  if ("ArrowDown" in keysDown) { // down
+  if ("s" in keysDown) { // down
     player.y += player.speed * mod;
     if (player.y >= canvas.height + player.height) {
       player.y = -player.height/2;
     }
   }
-  if ("ArrowLeft" in keysDown) { // left
+  if ("a" in keysDown) { // left
     player.x -= player.speed * mod;
     if (player.x <= -player.width) {
       player.x = canvas.width - player.width/2;
     }
   }
-  if ("ArrowRight" in keysDown) { // right
+  if ("d" in keysDown) { // right
     player.x += player.speed * mod;
     if (player.x >= canvas.width + player.width) {
       player.x = -player.width/2;

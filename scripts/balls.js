@@ -1,8 +1,9 @@
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 
-const width = canvas.width = window.innerWidth;
-const height = canvas.height = window.innerHeight;
+const WIDTH = canvas.width = window.innerWidth;
+const HEIGHT = canvas.height = window.innerHeight;
+const NUMBALLS = 50;
 
 let score = document.querySelector('p');
 
@@ -34,13 +35,13 @@ class Ball extends Shape {
     ctx.fill();
   }
   update (mod) {
-    if ((this.x + this.size) >= width) {
+    if ((this.x + this.size) >= WIDTH) {
       this.velX = -(this.velX);
     }
     if ((this.x - this.size) <= 0) {
       this.velX = -(this.velX);
     }
-    if ((this.y + this.size) >= height) {
+    if ((this.y + this.size) >= HEIGHT) {
       this.velY = -(this.velY);
     }
     if ((this.y - this.size) <= 0) {
@@ -69,7 +70,7 @@ class Orb extends Shape {
     this.color = '#1F2522';
     this.size = 10;
     this.keysDown = {};
-    this.speed = 1;
+    this.speed = 5;
   }
   draw () {
     ctx.beginPath();
@@ -91,24 +92,24 @@ class Orb extends Shape {
     if ('w' in this.keysDown) {
       this.y -= this.speed * mod;
       if (this.y <= -this.size) {
-        this.y = height + this.size / 2;
+        this.y = HEIGHT + this.size / 2;
       }
     }
     if ('s' in this.keysDown) {
       this.y += this.speed * mod;
-      if (this.y >= height + this.size) {
+      if (this.y >= HEIGHT + this.size) {
         this.y = -this.size / 2;
       }
     }
     if ('a' in this.keysDown) {
       this.x -= this.speed * mod;
       if (this.x <= -this.size) {
-        this.x = width + this.size / 2;
+        this.x = WIDTH + this.size / 2;
       }
     }
     if ('d' in this.keysDown) {
       this.x += this.speed * mod;
-      if (this.x >= width + this.size) {
+      if (this.x >= WIDTH + this.size) {
         this.x = -this.size / 2;
       }
     }
@@ -130,7 +131,7 @@ class Orb extends Shape {
 }
 
 let balls = [];
-let orb = new Orb(width / 2, height / 2, true);
+let orb = new Orb(WIDTH / 2, HEIGHT / 2, true);
 orb.setControls();
 let count = 0;
 
@@ -139,13 +140,13 @@ function main () {
   let delta = now - then;
 
   ctx.fillStyle = 'rgba(223, 193, 199, 0.1)';
-  ctx.fillRect(0, 0, width, height);
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-  while (balls.length < 200) {
+  while (balls.length < NUMBALLS) {
     let size = random(10, 20);
     let ball = new Ball(
-      random(0 + size, width - size),
-      random(0 + size, height - size),
+      random(0 + size, WIDTH - size),
+      random(0 + size, HEIGHT - size),
       random(-200, 200),
       random(-200, 200),
       true,

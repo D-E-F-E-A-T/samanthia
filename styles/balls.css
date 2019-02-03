@@ -1,0 +1,29 @@
+html, body {
+  margin: 0;
+}
+
+html {
+  font-family: 'Merriweather', Arial, sans-serif;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  height: inherit;
+}
+
+h1 {
+  position: absolute;
+  margin: 0;
+  top: 0px;
+  right: 5px;
+  color: #6E8F92;
+}
+
+p {
+  position: absolute;
+  margin: 0;
+  top: 40px;
+  right: 5px;
+  color: #6E8F92;
+}

@@ -52,7 +52,7 @@ class Ball extends Shape {
   }
   collisionDetect () {
     for (let j = 0; j < balls.length; j++) {
-      if (!(this === balls[j])) {
+      if (!(this === balls[j]) && balls[j].exists) {
         let dx = this.x - balls[j].x;
         let dy = this.y - balls[j].y;
         let distance = Math.sqrt(dx * dx + dy * dy);

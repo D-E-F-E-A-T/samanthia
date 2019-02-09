@@ -52,12 +52,11 @@ class Deck {
   }
 }
 
-let deck = new Deck();
-
 let btn = document.querySelector('button');
 btn.addEventListener('click', revealCards);
 
 function revealCards() {
+  let deck = new Deck();
   let hand = [];
   while (hand.length < OPENINGHAND) {
     hand.push(deck.cards.pop());

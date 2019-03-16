@@ -1,19 +1,27 @@
 body {
   margin: 10px;
-  color: #1F2522;
+  color: #292421;
   background-color: #DFC1C7;
   font-size: 16px;
   font-family: 'Merriweather', serif;
 }
 
 h1 {
-  margin: 0;
+  /* margin: 0; */
   color: #6E8F92;
   /* color: #98C6C3; */
   font-size: 80px;
 }
 
 footer {
-  margin: 10px;
+  /* margin: 10px; */
   font-size: 12px;
+}
+
+a {
+  color: #68228B;
+}
+
+a:focus, a:hover {
+  color: #9A32CD;
 }
